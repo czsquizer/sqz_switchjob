@@ -53,11 +53,6 @@ Citizen.CreateThread(function()
     end
 end)
 
-RegisterNetEvent('sqz_switchjob:client_webhook')
-AddEventHandler('sqz_switchjob:client_webhook', function(job1, job1_grade, job2, job2_grade, color)
-	TriggerServerEvent('sqz_switchjob:discord_webhook', job1, job1_grade, job2, job2_grade, color)
-end)
-
 RegisterNetEvent('esx:setJob')
 AddEventHandler('esx:setJob', function(job)
 	ESX.PlayerData.job = job
