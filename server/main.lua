@@ -32,7 +32,6 @@ AddEventHandler('sqz_switchjob:setSecondJob', function(job1, job1_grade, job2, j
             end
         end
     )  
-    Wait(100) 
     MySQL.Async.execute('UPDATE users SET secondjob_grade = @secondjob_grade WHERE identifier = @identifier',
     { 
         ['@secondjob_grade'] = job1_grade,
