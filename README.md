@@ -15,4 +15,5 @@ Is is quite simple, there are few simple steps.
 - Go to /server/main.lua and edit ``` local webhook = 'xxx'``` to your likings.
 - Go to /client/main.lua and edit all by your's liking :) Mainly the notifications. *Optional*
 
+### You can check as well our Discord: https://discord.gg/FVXAu2F, where a help will be provided :-)
 You can edit it or use like you like, but **please**, do not sell it or republish it as yours. Thank you
