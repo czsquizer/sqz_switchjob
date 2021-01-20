@@ -7,6 +7,7 @@ This is an another my simple resource which allows you to have multiple jobs, sw
 - Have double jobs (be a gangester and waiter)
 - Change jobs using command
 - Log it for admins
+- Allow admins change players second job directly from game
 
 ## Installation
 Is is quite simple, there are few simple steps.
