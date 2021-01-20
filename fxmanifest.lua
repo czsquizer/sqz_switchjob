@@ -6,7 +6,7 @@ description 'Squizers Job Switch Script'
 
 client_script 'client/main.lua'
 
-version '1.0.1'
+version '1.0.2'
 
 server_scripts {
     'server/main.lua',

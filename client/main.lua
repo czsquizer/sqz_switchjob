@@ -57,3 +57,11 @@ RegisterNetEvent('esx:setJob')
 AddEventHandler('esx:setJob', function(job)
 	ESX.PlayerData.job = job
 end)
+
+-- Add sugestion for /setjob2 command
+
+TriggerEvent('chat:addSuggestion', '/setjob2', 'Sets players second job', {
+    { name="playerID", help="The server ID of player you want to change his second job" },
+    { name="jobname", help="The job name of job you want to set for a player" },
+    { name="jobgrade", help="The job grade of job you want to set for a player" }
+})
