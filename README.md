@@ -1,3 +1,10 @@
+# Visit Squizer's "social media"
+* [Tebex](https://sqz.tebex.io/)
+* [Cfx.re Forum](https://forum.cfx.re/u/squizer/)
+* [Discord](https://discord.gg/FVXAu2F)
+* [GitHub](https://github.com/czsquizer/)
+### Made by Squizer#3020
+
 # sqz_switchjob
 
 This is an another my simple resource which allows you to have multiple jobs, switch them using command /changejob and log it to the admin team - to room at the Discord server where admin team will has access to.
