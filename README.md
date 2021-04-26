@@ -2,6 +2,9 @@
 
 This is an another my simple resource which allows you to have multiple jobs, switch them using command /changejob and log it to the admin team - to room at the Discord server where admin team will has access to.
 
+__You can support me__
+[![PayPal](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate?hosted_button_id=M4KV4Q9LDWEBC) 
+
 # Features
 - Easy install and edit
 - Have double jobs (be a gangester and waiter)
@@ -12,10 +15,10 @@ This is an another my simple resource which allows you to have multiple jobs, sw
 # Installation
 Is is quite simple, there are few simple steps.
 
-- Import sql.sql to your database
-- Go to /server/main.lua and edit ``` local webhook = 'xxx'``` to your likings.
-- Go to /server/main.lua and edit ``` allowedAdminGroups ``` which contains allowed admin groups
-- Go to /client/main.lua and edit all by your's liking :) Mainly the notifications. *Optional*
+1) Import sql.sql to your database
+2) Go to /server/main.lua and edit ``` local webhook = 'xxx'``` to your likings.
+3) Go to /server/main.lua and edit ``` allowedAdminGroups ``` which contains allowed admin groups
+4) Go to /client/main.lua and edit all by your's liking :) Mainly the notifications. *Optional*
 
 # Issues
 In case of any issues, let me know, you have 2 ways. You can create a GitHub issue or event you can join our Discord server and let me know in the Discord server.
