@@ -7,7 +7,7 @@ local allowCommand = true
 
 Citizen.CreateThread(function()
 	while ESX == nil do
-		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
+		TriggerEvent(Config.ESXSharedObject, function(obj) ESX = obj end)
 		Citizen.Wait(0)
 	end
 
@@ -18,13 +18,13 @@ Citizen.CreateThread(function()
 	ESX.PlayerData = ESX.GetPlayerData()
 end)
 
-RegisterCommand("changejob", function (src, args, raw)
+RegisterCommand(Config.SwitchCommand, function (src, args, raw)
     if timer == 0 and allowCommand then
         TriggerServerEvent('sqz_switchjob:getSecondJob')
         timer = 30
         allowCommand = false
     else
-        ESX.ShowNotification('You have to wait 30 seconds between switching jobs, now you have to wait: (time in seconds) '..timer) -- Here you can change whatewer you want
+        ESX.ShowNotification(_U('wait', timer))
     end
 end, false)
 
@@ -35,13 +35,12 @@ AddEventHandler('sqz_switchjob:returnSecondJob', function(secondjob, secondjob_g
     job1 = ESX.PlayerData.job.name
     job1_grade = ESX.PlayerData.job.grade
     TriggerServerEvent('sqz_switchjob:setSecondJob', job1, job1_grade, job2, job2_grade)
-    ESX.ShowNotification('You have changed your jobs.') -- Here you can change whatewer you want
+    ESX.ShowNotification(_U('changed'))
     Wait(5000)
-    ESX.ShowNotification('Your current job is: '..ESX.PlayerData.job.label..' and Your job grade is: '..ESX.PlayerData.job.grade_label) -- Here you can change whatewer you want
+    ESX.ShowNotification(_U('current', ESX.PlayerData.job.label, ESX.PlayerData.job.grade_label))
 end)
 
 Citizen.CreateThread(function()
-    
     while true do
         if timer > 1 then
             timer = timer-1  
@@ -60,8 +59,8 @@ end)
 
 -- Add sugestion for /setjob2 command
 
-TriggerEvent('chat:addSuggestion', '/setjob2', 'Sets players second job', {
-    { name="playerID", help="The server ID of player you want to change his second job" },
-    { name="jobname", help="The job name of job you want to set for a player" },
-    { name="jobgrade", help="The job grade of job you want to set for a player" }
+TriggerEvent('chat:addSuggestion', '/'..Config.SetJob2Command, (_U('setjob2_description')), {
+    { name="playerID", help=(_U('setjob2_playerid')) },
+    { name="jobname", help=(_U('setjob2_jobname')) },
+    { name="jobgrade", help=(_U('setjob2_jobgrade')) }
 })
