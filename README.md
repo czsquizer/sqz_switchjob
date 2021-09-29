@@ -5,9 +5,6 @@ This is an another my simple resource which allows you to have multiple jobs, sw
 __You can read the docs here__
 [![Docs](https://img.shields.io/badge/docs-passing-brightgreen)](https://docs.squizer.cz)
 
-__You can support me__
-[![PayPal](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate?hosted_button_id=M4KV4Q9LDWEBC) 
-
 # Features
 - Easy install and edit
 - Have double jobs (be a gangester and waiter)

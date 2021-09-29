@@ -29,22 +29,35 @@ AddEventHandler('sqz_switchjob:setSecondJob', function(job1, job1_grade, job2, j
     local _source = source
     local xPlayer = ESX.GetPlayerFromId(_source)
 
-    xPlayer.setJob(job2, job2_grade)
+    MySQL.Async.fetchAll('SELECT secondjob, secondjob_grade FROM users WHERE identifier = @identifier', { ['@identifier'] = xPlayer.getIdentifier() }, function(result)
 
-    MySQL.Async.execute('UPDATE users SET secondjob = @secondjob, secondjob_grade = @secondjob_grade WHERE identifier = @identifier',
-        { 
-            ['@secondjob'] = job1,
-            ['@secondjob_grade'] = job1_grade,
-            ['@identifier'] = xPlayer.getIdentifier(),
-        },
-        function(affectedRows)
-            if affectedRows == 0 then
-                print('Player with steam ID: '..xPlayer.getIdentifier()..' had an issue while changing his job with saving his secondjob')
+        if result[1] ~= nil then
+            if result[1].secondjob == job2 and result[1].secondjob_grade == job2_grade then
+                xPlayer.setJob(job2, job2_grade)
+
+                MySQL.Async.execute('UPDATE users SET secondjob = @secondjob, secondjob_grade = @secondjob_grade WHERE identifier = @identifier',
+                    { 
+                        ['@secondjob'] = job1,
+                        ['@secondjob_grade'] = job1_grade,
+                        ['@identifier'] = xPlayer.getIdentifier(),
+                    },
+                    function(affectedRows)
+                        if affectedRows == 0 then
+                            print('Player with steam ID: '..xPlayer.getIdentifier()..' had an issue while changing his job with saving his secondjob')
+                        end
+                    end
+                )  
+            
+                SendDiscordWebhook(_source, job1, job1_grade, job2, job2_grade, 255)
+            else
+                print('Player with identifier '..xPlayer.identifier..' is most 99% cheater.')
+                DropPlayer(_source, 'Cheater, setting job event abuse')
             end
+        else
+            print('Player with ID '..xPlayer.identifier..' had issues with changing job, he is most likely cheating')
         end
-    )  
+    end)
 
-    SendDiscordWebhook(_source, job1, job1_grade, job2, job2_grade, 255)
 end)
 
 function SendDiscordWebhook(source, job1, job1_grade, job2, job2_grade, color)

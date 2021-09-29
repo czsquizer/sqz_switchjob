@@ -6,9 +6,9 @@ description 'Squizers Job Switch Script'
 
 client_script 'client/main.lua'
 
-version '1.0.2'
+version '1.0.3'
 
 server_scripts {
-    'server/main.lua',
-    '@mysql-async/lib/MySQL.lua'
+    '@mysql-async/lib/MySQL.lua',
+    'server/main.lua'
 }
