@@ -25,6 +25,20 @@ Is is quite simple, there are few simple steps.
 3) Go to /server/main.lua and edit ``` allowedAdminGroups ``` which contains allowed admin groups
 4) Go to /client/main.lua and edit all by your's liking :) Mainly the notifications. *Optional*
 
+# Exports
+## Client
+```lua
+local first, second = exports.sqz_switchjob:GetJobs()
+print(first.job, first.grade)
+print(second.job, second.grade)
+```
+### Server
+```lua
+exports.sqz_switchjob:GetJobs(source, function(first, second)
+        print(first.job, first.grade)
+        print(second.job, second.grade)
+end)
+```
 # Issues
 In case of any issues, let me know, you have 2 ways. You can create a GitHub issue or event you can join our Discord server and let me know in the Discord server.
 1) Remember to provide screenshot from the client/error console, if you see any errors
