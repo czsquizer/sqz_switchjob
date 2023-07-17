@@ -1,8 +1,3 @@
-# <center>Quality hosting with preconfigured and DDoS protected cheap FiveM servers. Use link: https://zap-hosting.com/sqzscripts or a code when processing your order: `squizer-8709`.</center>
-[<img src="https://zap-hosting.com/interface/download/images.php?type=affiliate&id=202971">](https://zap-hosting.com/sqzscripts)
-
----
-
 # SQZ_SWITCHJOB SCRIPT
 
 This is an another my simple resource which allows you to have multiple jobs, switch them using command /changejob and log it to the admin team - to room at the Discord server where admin team will has access to.
