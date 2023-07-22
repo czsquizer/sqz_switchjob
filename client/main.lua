@@ -65,3 +65,7 @@ TriggerEvent('chat:addSuggestion', '/setjob2', 'Sets players second job', {
     { name="jobname", help="The job name of job you want to set for a player" },
     { name="jobgrade", help="The job grade of job you want to set for a player" }
 })
+
+exports('GetJobs', function()
+    return { job = job1, grade = job1_grade }, { job = job2, grade = job2_grade }
+end)

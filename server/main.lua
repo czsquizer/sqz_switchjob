@@ -115,3 +115,21 @@ RegisterCommand("setjob2", function(source, args, rawCommand)
     end
     
 end, false)
+
+exports('GetJobs',
+    function(source, callback)
+        local xPlayer = ESX.GetPlayerFromId(source)
+        MySQL.Async.fetchAll(
+            "SELECT secondjob, secondjob_grade FROM users WHERE identifier = @identifier",
+            {["@identifier"] = xPlayer.getIdentifier()},
+            function(result)
+                if result[1] ~= nil and result[1].secondjob ~= nil and result[1].secondjob_grade ~= nil then
+                    callback(
+                        {job = xPlayer.job.name, grade = xPlayer.job.grade_name},
+                        {job = result[1].secondjob, grade = result[1].secondjob_grade}
+                    )
+                end
+            end
+        )
+    end
+)
